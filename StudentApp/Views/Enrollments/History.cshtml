@@ -1,0 +1,51 @@
+﻿@model StudentApp.ViewModels.EnrollmentHistoryViewModel
+
+@{
+    ViewData["Title"] = "Enrollment History";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@* @if (Model.Enrollments != null && Model.Enrollments.Any())
+{
+    <form asp-action="History" method="get">
+        <div class="form-group">
+            <label for="SelectedStudentId" class="control-label">Select Student:</label>
+            <select asp-for="SelectedStudentId" asp-items="Model.Student" class="form-control"></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+}
+else
+{
+    <p>No history found for this student.</p>
+}
+<hr />
+
+@if (Model.Enrollments != null && Model.Enrollments.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Enrollment Date</th>
+                <th>Last Modified</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Enrollments)
+            {
+                <tr>
+                    <td>@item.Course.CourseName</td>
+                    <td>@item.EnrollmentDate.ToShortDateString()</td>
+                    <td>@item.ModifiedDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No history found for this student.</p>
+}
+ *@
